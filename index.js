@@ -3,10 +3,12 @@ const app = express();
 const path = require('path');
 const passport = require('passport');
 const model = require('./models/User');
+const passportConfig = require('./config/passport');
 
 module.exports = function(core) {
   app.set('model', model);
   app.set('views', path.join(__dirname, 'views'));
+  app.set('service', passportConfig(app));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use((req, res, next) => {
