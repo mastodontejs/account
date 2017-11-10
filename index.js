@@ -36,7 +36,11 @@ module.exports = function(core) {
 
   const routes = require('./routes/account')(app);
 
-  app.use('/', routes)
+  app.use('/', routes);
+
+  core.set('services', Object.assign({}, core.get('services'), {
+    account: app.get('service')
+  }));
 
   return app
 };
