@@ -34,7 +34,7 @@ module.exports = function(core) {
     next();
   });
 
-  const routes = require('./routes/account')(app);
+  const routes = require('./routes')(app);
 
   app.use('/', routes);
 

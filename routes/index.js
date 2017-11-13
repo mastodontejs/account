@@ -11,7 +11,7 @@ module.exports = (app) => {
   /**
    * Controllers (route handlers).
    */
-  const userController = require('../controllers/user')(app);
+  const userController = require('../controllers')(app);
   
   router.get('/', service.isAuthenticated, userController.getAccount);
   router.get('/login', userController.getLogin);
